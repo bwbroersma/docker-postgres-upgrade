@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    environment:
+      POSTGRES_DB: some_app
+      POSTGRES_INITDB_ARGS: --data-checksums
+    image: postgres:11.4-alpine
+    volumes:
+      - './initdb:/docker-entrypoint-initdb.d:ro'
+      - './upgrade:/upgrade:ro'
+      - './pgdata:/var/lib/postgresql/data'
