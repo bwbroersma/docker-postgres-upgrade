@@ -27,4 +27,5 @@ $ docker-compose -f docker-compose12.yml exec db psql -U postgres some_app -c "S
 ## ToDo
 
 * Probably copy/replace the whole [`docker-entrypoint.sh`](https://github.com/docker-library/postgres/blob/2353eaaa68b7f4febfa08571a6499367a36b560d/12/alpine/docker-entrypoint.sh) script.
+* Run `analyze_new_cluster.sh` and `delete_old_cluster.sh` if successful
 * Zero downtime migration, with logical replication?
