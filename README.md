@@ -5,16 +5,16 @@ Proof of concept to use a entrypoint wrapper to perform both `pg_upgrade` as dat
 ## Demo
 
 ```bash
-docker-compose -f docker-compose11.yml up -d
-docker-compose -f docker-compose11.yml exec db psql -U postgres some_app -c "SELECT * FROM some_data;";
+$ docker-compose -f docker-compose11.yml up -d
+$ docker-compose -f docker-compose11.yml exec db psql -U postgres some_app -c "SELECT * FROM some_data;";
  id |                                         data                                          |            created            
 ----+---------------------------------------------------------------------------------------+-------------------------------
   1 | init data                                                                             | 2019-10-12 12:00:39.466121+00
   2 | more data                                                                             | 2019-10-12 12:00:39.466121+00
   3 | PostgreSQL 11.4 on x86_64-pc-linux-musl, compiled by gcc (Alpine 8.3.0) 8.3.0, 64-bit | 2019-10-12 12:00:39.466121+00
 (3 rows)
-docker-compose -f docker-compose12.yml up -d
-docker-compose -f docker-compose12.yml exec db psql -U postgres some_app -c "SELECT * FROM some_data;";
+$ docker-compose -f docker-compose12.yml up -d # and wait a bit (or remove the -d and run in separate console)
+$ docker-compose -f docker-compose12.yml exec db psql -U postgres some_app -c "SELECT * FROM some_data;";
  id |                                         data                                          |            created            |         new         
 ----+---------------------------------------------------------------------------------------+-------------------------------+---------------------
   1 | init data                                                                             | 2019-10-12 12:00:39.466121+00 | 
